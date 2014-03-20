@@ -7,9 +7,9 @@
 
 		<% if (locals.current_user && current_user._id != user._id) { %>
 			<% if (!locals.relation) { %>
-				<button class='btn btn-success follow_btn' action='follow'>加入关注</button>
+				<div class='btn btn-success follow_btn' action='follow'>加入关注</div>
 			<% } else { %>
-				<button class='btn follow_btn' action='un_follow'>取消关注</button>
+				<div class='btn follow_btn' action='un_follow'>取消关注</div>
 			<% } %>
 		<% } %>
 

@@ -40,8 +40,7 @@ var UserSchema = new Schema({
 });
 
 UserSchema.virtual('avatar_url').get(function () {
-  var url = this.profile_image_url || this.avatar || config.site_static_host + '/public/images/user_icon&48.png';
-  return url.replace('http://www.gravatar.com/', 'http://cnodegravatar.u.qiniudn.com/');
+  return '../../public/images/morentouxiang.jpg';
 });
 
 mongoose.model('User', UserSchema);

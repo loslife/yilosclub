@@ -14,9 +14,9 @@
 			</div>
 			<% if (locals.current_user && current_user._id != user._id) { %>
 				<% if (!locals.relation) { %>
-				<button class='btn btn-success follow_btn' action='follow'>加入关注</button>
+				<div class='btn btn-success follow_btn' action='follow'>加入关注</div>
 				<% } else { %>
-				<button class='btn follow_btn' action='un_follow'>取消关注</button>
+				<div class='btn follow_btn' action='un_follow'>取消关注</div>
 				<% } %>
 			<% } %>
 			<a class='dark'><%= user.name %></a>
@@ -66,15 +66,15 @@
 			<p class='col_fade'>于 <%= user.friendly_create_at %> 加入 <%= config.name %></p>
 			<% if (locals.current_user && current_user.is_admin) { %>
 				<% if (!user.is_star) { %>
-				<button class='btn' id='set_star_btn' action='set_star'>设为达人</button>
+				<div class='btn' id='set_star_btn' action='set_star'>设为达人</div>
 				<% } else { %>
-				<button class='btn' id='set_star_btn' action='cancel_star'>取消达人</button>
+				<div class='btn' id='set_star_btn' action='cancel_star'>取消达人</div>
 				<% } %>
 
         <% if (!user.is_block) { %>
-          <button class='btn' id='set_block_btn' action='set_block'>屏蔽用户并删其所有帖</button>
+          <div class='btn' id='set_block_btn' action='set_block'>屏蔽用户并删其所有帖</div>
         <% } else { %>
-          <button class='btn' id='set_block_btn' action='cancel_block'>取消屏蔽用户</button>
+          <div class='btn' id='set_block_btn' action='cancel_block'>取消屏蔽用户</div>
         <% } %>
 
 				<br/><br/>

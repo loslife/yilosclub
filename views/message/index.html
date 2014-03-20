@@ -11,7 +11,7 @@
 		<% if (locals.hasnot_read_messages && hasnot_read_messages.length > 0) { %>
 		<%- partial('message/message', { collection: hasnot_read_messages, as: 'message' }) %>
 		<div class='cell'>
-			<button id='mark_all_messages_btn' class='btn'>标记所有消息为已读</button>
+			<div id='mark_all_messages_btn' class='btn'>标记所有消息为已读</div>
 		</div>
 		<% } else { %>
 		<div class='inner'>

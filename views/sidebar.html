@@ -9,10 +9,10 @@
       </div>
       <% } else { %>
       <div class='inner'>
-        <p><%= config.description %></p>
+        <p style="margin-bottom: 12px"><%= config.description %></p>
         <div>
-          <a href='/signup'><button class='btn'>现在注册</button></a>
-          <span>已注册用户请<a class='light' href='/signin'> 登录</a></span>
+          <a href='/signup'><div class='btn btn-success'>现在注册</div></a>
+          <span style="margin-left: 12px">已注册用户请<a class='light' href='/signin'> 登录</a></span>
         </div>
       </div>
     <% } %>
@@ -57,7 +57,7 @@
   <% if (locals.stars) { %>
   <div class='panel'>
     <div class='header'>
-      <span class='col_fade'>社区达人</span> &nbsp;
+      <span class='col_fade'>论坛达人</span> &nbsp;
       <a class='dark' href='/stars'>更多»</a>
     </div>
     <div class='inner'>

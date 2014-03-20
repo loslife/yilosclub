@@ -83,9 +83,9 @@
           >分享到 weibo</a>
         <% if (locals.current_user) { %>
           <% if (!topic.in_collection) { %>
-          <button class='btn btn-success' id='collect_btn' action='collect'>加入收藏</button>
+          <div class='btn btn-success' id='collect_btn' action='collect'>加入收藏</div>
           <% } else { %>
-          <button class='btn' id='collect_btn' action='de_collect'>取消收藏</button>
+          <div class='btn' id='collect_btn' action='de_collect'>取消收藏</div>
           <% } %>
         <% } %>
         <% if (locals.current_user) { %>
@@ -139,7 +139,7 @@
         </div>
 
         <button id='submit_btn' class='btn'>回复</button>
-        <span class='col_fade'>Ctrl+Enter 快捷回复</span>
+        <span class='col_fade' style="vertical-align: bottom;margin-left: 5px;">Ctrl+Enter 快捷回复</span>
       </form>
     </div>
   </div>

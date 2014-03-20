@@ -4,6 +4,9 @@ body, p {
   word-break: break-all;
   -webkit-font-smoothing: antialiased;
 }
+body{
+    background: #e2e2e2;
+}
 textarea, input[type="text"],
 input[type="password"],
 input[type="datetime"],
