@@ -220,11 +220,13 @@ a.light:hover {
   font-size: 14px;
 }
 .messages_count {
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -o-border-radius: 8px;
-  border-radius: 8px;
-
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+    margin-left: 6px;
+    text-align: center!important;
+    min-width: 15px!important;
   padding: 1px 5px;
   background-color: #46a546;
   color: white;
