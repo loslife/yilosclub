@@ -7,8 +7,8 @@ var pkg = require('./package.json');
 
 var config = {
   debug: true,
-  name: 'Node Club',
-  description: 'Node Club 是用Node.js开发的社区软件',
+  name: 'yilos Club',
+  description: '欢迎光临乐斯论坛',
   version: pkg.version,
 
   // site settings

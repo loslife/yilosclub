@@ -25,6 +25,7 @@
   padding: 0;
   width: 758px;
   float: left;
+  margin-bottom: 3rem;
 }
 #sidebar {
   width: 290px;
@@ -33,29 +34,35 @@
 }
 #content .panel {
   background: hsla(0, 0%, 100%, 1);
-  box-shadow: 0px 0px 1px hsl(0,0%,40%);
+  border-radius: 5px;
 }
 #sidebar .panel {
   background: hsla(0, 0%, 100%, 1);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-left: 10px;
 }
 #sidebar .header {
-  background: hsl(0, 0%, 93%);
+  background: #f1f1f1;
   color: hsl(202, 6%, 34%);
   font-weight: bold;
 }
 #footer {
-  height: 200px;
+  height: 7em;
   clear: both;
-  background: hsla(0, 100%, 100%, 1);
+  background: #1e1e20;
   position: relative;
   box-shadow: 0px -1px 0px hsl(0,0%,90%);
   margin-top: 8px;
 }
 #footer_main {
-  width: 1040px;
+  width: 1060px;
   margin: 0px auto;
   color: #e2e2e2;
   padding: 20px 0px;
+}
+#footer_main .links {
+    margin-top: 20px;
 }
 #mark_all_messages_btn {
   margin: 5px 0px;
@@ -79,8 +86,9 @@ a.dark {
   font-size: 14px;
 }
 a.dark:link, a.dark:visited, a.dark:active {
-  color: #666;
+  color: #778087;
   text-decoration: none;
+  font-size: 12px;
 }
 a.dark:hover {
   color: #385f8a;
@@ -99,11 +107,29 @@ a.light:hover {
 
 .panel {
   margin-bottom: 8px;
-  box-shadow: 0 0 1px hsl(0, 0%, 40%);
 }
 .panel .header {
   padding: 7px 10px;
-  background-color: hsl(0,0%,93%);
+  border-top-left-radius: 5px ;
+  border-top-right-radius: 5px ;
+  background-color: #f8f8f8;
+}
+
+#footer_main .links a {
+    color: #fff;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+#footer_main .links a:first-child{
+    margin-left: 0!important;
+}
+.panel .inner ul li {
+  text-decoration: none;
+  list-style: none;
+  margin-bottom: 3px;
+}
+.panel .inner ul{
+    margin-left: 10px;
 }
 .panel .moon {
   padding: 10px;
@@ -177,6 +203,12 @@ a.light:hover {
 .board .floor {
   line-height: 24px;
 }
+.board .floor span{
+    min-width: 30px;
+    display: inline-block;
+    text-align: right;
+    margin-right: 8px;
+}
 .board a {
   color: #404040;
 }
@@ -188,11 +220,13 @@ a.light:hover {
   font-size: 14px;
 }
 .messages_count {
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -o-border-radius: 8px;
-  border-radius: 8px;
-
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+    margin-left: 6px;
+    text-align: center!important;
+    min-width: 15px!important;
   padding: 1px 5px;
   background-color: #46a546;
   color: white;
@@ -301,7 +335,7 @@ a.user_avatar:hover {
   vertical-align: middle;
   width: 48px;
 }
-.user_card .user_name {
+.user_card .user_name .dark {
   font-size: 16px;
 }
 .cell .user_avatar {
@@ -336,8 +370,7 @@ a.user_avatar:hover {
   height: 80px;
   border: 1px dashed #e2e2e2;
   padding: 10px;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin: 10px;
   display: inline-block;
 }
 .user .user_avatar {
@@ -386,9 +419,12 @@ a.user_avatar:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  line-height: 48px;
+  line-height: 50px;
   width: 500px;
-  font-size: 18px;
+  font-size: 14px;
+}
+.topic_wrap a{
+    color: #778087;
 }
 a.topic_title {
   font-size: 16px;
@@ -406,6 +442,7 @@ img.unread {
 /* single */
 #create_topic_btn {
   float: right;
+    text-decoration: none;
 }
 .board {
   margin-top: 10px;
@@ -524,29 +561,40 @@ textarea[id^=wmd-input] {
   background-color: #F5F5F5;
 }
 .put_top {
-  background: hsl(0, 0%, 80%);
+  background: #66a3ff;
   padding: 1px 2px;
   border-radius: 2px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -o-border-radius: 2px;
+    font-size: 12px;
   color: hsl(0,0%,100%);
 }
 
 /* custom bootstrap */
 .navbar {
   margin-bottom: 0px;
-  background-color: hsl(0, 0%, 93%);
+  background-image: url("../images/head-bg.jpg");
+  background-repeat: repeat-x;
   z-index: 9;
   width: 100%;
   position: relative;
-  box-shadow: 0px 0px 1px hsl(0, 0%, 40%);
 }
 .navbar-inner {
   background: none;
   border-radius: 0px;
   border: none;
   box-shadow: none;
+    width: 1060px;
+    margin: 0px auto;
+    padding: 0px 0px 30px 0px;
+    position: relative;
+}
+.head-first-line > div:first-child{
+    font-size: 12px;
+    display: inline-block;
+    color: #fff;
+    margin-top: 9px;
 }
 .navbar .container {
   width: 1060px;
@@ -557,16 +605,17 @@ textarea[id^=wmd-input] {
   width: 143px;
 }
 .navbar .navbar-search {
-  margin-top: 6px;
 }
 .navbar .search-query {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: 0px 0px 4px hsl(0, 12%, 76%);
   background: white url('../images/search.png') no-repeat 4px 4px;
-  padding: 4px 5px 4px 22px;
+  padding: 5px 5px 0px 22px;;
   color: #666;
   border: 0px;
+  width: 134px;
+  margin-top: 1px;
 }
 .navbar .search-query:hover {
   background-color: #fff;
@@ -583,12 +632,13 @@ textarea[id^=wmd-input] {
 }
 .navbar .nav > li > a {
   text-shadow: none;
-  font-weight: bold;
-  color: hsl(210, 27%, 30%);
+  color: #fff;
 }
 .form-actions {
   border-top: none;
   background-color: white;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 .btn {
   padding: 3px 14px;
@@ -603,6 +653,7 @@ textarea[id^=wmd-input] {
 
 .nav-pills {
   margin: 0px 0px 10px 0px;
+    display: none;
 }
 .nav-pills>li>a {
   padding: 2px 10px;
@@ -664,14 +715,19 @@ div[class$=content] > blockquote > p {
 /* about score on sidebar */
 .top_score {
   color: gray;
+  text-align: right;
   padding: 2px;
 }
 .inner ol {
   margin: 4px 0px;
-  list-style: none;
+  color: #778087;
+  text-decoration: none;
+  font-size: 12px;
+  margin-left: 20px;
 }
 .top_score {
-  margin-right: 10px;
+    min-width: 24px;
+    display: inline-block;
 }
 
 /* format the additional msgs of topics */
@@ -686,11 +742,18 @@ div[class$=part] {
 }
 .topic_content{
 }
+.form-horizontal{
+    margin-top: 24px;
+    padding-bottom: 24px;
+}
 .form-horizontal .control-group:before,
 .form-horizontal .control-group:after {
   display: none;
   line-height: 0;
   content: "";
+}
+
+.controls{
 }
 
 textarea.editor {
@@ -702,9 +765,11 @@ textarea.editor {
 }
 
 #content .header {
-  line-height: 200%;
+  line-height: 300%;
 }
-
+#content .panel .inner p {
+    padding: 12px;
+}
 .marked_icon {
   float: right;
 }

@@ -8,15 +8,15 @@
 				<li class='active'><%= user.name %></li>
 			</ul>
 		</div>
-		<div class='inner'>
+		<div class='inner' style="padding: 10px">
 			<div class='user_big_avatar'>
 				<img src="<%= user.avatar_url %>" title="<%= user.name %>" />
 			</div>
 			<% if(locals.current_user && current_user._id != user._id){ %>
 			<% if(!locals.relation){ %>
-			<button class='btn btn-success' id='follow_btn' action='follow'>加入关注</button>
+			<div class='btn btn-success' id='follow_btn' action='follow'>加入关注</div>
 			<% }else{ %>
-			<button class='btn' id='follow_btn' action='un_follow'>取消关注</button>
+			<div class='btn' id='follow_btn' action='un_follow'>取消关注</div>
 			<% } %>
 			<% } %>
 			<h2><%= user.name %></h2>
@@ -55,9 +55,9 @@
 			<p class='col_fade'>于 <%= user.friendly_create_at %> 加入 <%= config.name %></p>
 			<% if(locals.current_user && current_user.is_admin){ %>
 			<% if(!user.is_star){ %>
-			<button class='btn' id='set_star_btn' action='set_star'>设为达人</button>
+			<div class='btn' id='set_star_btn' action='set_star'>设为达人</div>
 			<% }else{ %>
-			<button class='btn' id='set_star_btn' action='cancel_star'>取消达人</button>
+			<div class='btn' id='set_star_btn' action='cancel_star'>取消达人</div>
 			<% } %>
 			<% } %>
 		</div>
