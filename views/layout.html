@@ -51,22 +51,20 @@
     <!-- navbar -->
     <div class='navbar'>
       <div class='navbar-inner'>
-        <div class="head-first-line" style="height: 54px ; width: 100%">
-            <div>
-                欢迎光临乐斯社区！ =^_^=
-            </div>
 
-            <form id='search_form' class='navbar-search ' action="/" style="float: right">
-                <input type='text' id='q' name='q' class='search-query span3' value='<%= locals.keyword || '' %>'/>
-            </form>
-        </div>
         <div class='container'>
           <a class='brand' href='/'>
-              <img src="http://img1.yilos.com/portal/nail/images/logo.png" style="height: 51px; width: 250px; vertical-align: middle; margin-top: -16px;">
+              <img src="http://img1.yilos.com/portal/nail/images/logo.png" style="height: 35px; width: 170px; vertical-align: middle; margin-top: -7px;">
           </a>
 
           <ul class='nav pull-right'>
-            <li><a href='/'>首页</a></li>
+            <li>
+              <form id='search_form' class='navbar-search ' action="/" style="float: right">
+                  <input type='text' id='q' name='q' class='search-query span3' value='<%= locals.keyword || '' %>'/>
+              </form>
+            </li>
+            <li><a href='/'>社区首页</a></li>
+              <li><a href='http://www.yilos.com' target="_blank">乐斯官网</a></li>
             <%
             var site_navs = config.site_navs || [];
             for (var i = 0, l = site_navs.length; i < l; i++) {
@@ -82,6 +80,7 @@
             <li><a href='/signup'>注册</a></li>
             <li><a href='/signin'>登录</a></li>
             <% } %>
+
           </ul>
         </div>
       </div>

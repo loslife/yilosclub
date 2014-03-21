@@ -8,7 +8,7 @@ var pkg = require('./package.json');
 var config = {
   debug: true,
   name: 'yilos Club',
-  description: '欢迎光临乐斯论坛',
+  description: '欢迎光临乐斯社区',
   version: pkg.version,
 
   // site settings
