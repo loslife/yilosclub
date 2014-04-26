@@ -4,23 +4,23 @@
 	<div class='panel'>
 		<div class='header'>
 			<ul class='breadcrumb'>
-				<li><a href='/'>主页</a><span class='divider'>/</span></li>
+				<li><a href='/<%= config.context %>/'>主页</a><span class='divider'>/</span></li>
 				<li class='active'>注册</li>
 			</ul>
 		</div>
 		<div class='inner'>
 			<% if (locals.error) { %>
-			<div class="alert alert-error">	
+			<div class="alert alert-error">
 				<a class="close" data-dismiss="alert" href="#">&times;</a>
 				<strong><%= error %></strong>
 			</div>
 			<% } %>
 			<% if (locals.success) { %>
 			<div class="alert alert-success">
-				<strong><%= success %></strong>
+				<strong><%= success %></strong> <a class="light" href="/<%= config.context %>/signin"> 登录</a>
 			</div>
 			<% } else { %>
-			<form id='signup_form' class='form-horizontal' action='/signup' method='post'>
+			<form id='signup_form' class='form-horizontal' action='/<%= config.context %>/signup' method='post'>
 				<div class='control-group'>
 					<label class='control-label' for='name'>用户名</label>
 					<div class='controls'>
@@ -60,5 +60,5 @@
 			</form>
 			<% } %>
 		</div>
-	</div>	
+	</div>
 </div>

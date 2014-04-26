@@ -69,7 +69,7 @@ app.use('/upload/', express.static(config.upload_dir, { maxAge: maxAge }));
 app.use('/user_data/', express.static(path.join(__dirname, 'public', 'user_data'), { maxAge: maxAge }));
 
 if (config.debug) {
-  app.use('/public', express.static(staticDir));
+  app.use('/bbs/public', express.static(staticDir));
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 } else {
   app.use(function (req, res, next) {
@@ -80,7 +80,7 @@ if (config.debug) {
     }
     csrf(req, res, next);
   });
-  app.use('/public', express.static(staticDir, { maxAge: maxAge }));
+  app.use('/bbs/public', express.static(staticDir, { maxAge: maxAge }));
   app.use(express.errorHandler());
   app.set('view cache', true);
 }

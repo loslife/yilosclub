@@ -75,7 +75,8 @@ exports.signup = function (req, res, next) {
       // 发送激活邮件
       mail.sendActiveMail(email, md5(email + config.session_secret), name);
       res.render('sign/signup', {
-        success: '欢迎加入 ' + config.name + '！我们已给您的注册邮箱发送了一封邮件，请点击里面的链接来激活您的帐号。'
+        //success: '欢迎加入 ' + config.name + '！我们已给您的注册邮箱发送了一封邮件，请点击里面的链接来激活您的帐号。'
+        success: '欢迎加入 ' + config.name + '！'
       });
     });
   });
@@ -129,6 +130,7 @@ exports.login = function (req, res, next) {
     if (pass !== user.pass) {
       return res.render('sign/signin', { error: '密码错误。' });
     }
+     //暂时做成不需要用户激活即可使用
 //    if (!user.active) {
 //      // 从新发送激活邮件
 //      mail.sendActiveMail(user.email, md5(user.email + config.session_secret), user.name);
@@ -137,14 +139,17 @@ exports.login = function (req, res, next) {
     // store session cookie
     gen_session(user, res);
     //check at some page just jump to home page
-    var refer = req.session._loginReferer || 'home';
+    var refer = req.session._loginReferer ||  config.context+'/home';
+      console.log(refer);
     for (var i = 0, len = notJump.length; i !== len; ++i) {
       if (refer.indexOf(notJump[i]) >= 0) {
-        refer = 'home';
+        refer = "/"+config.context+'/home';
         break;
       }
     }
-    res.redirect(refer);
+      console.log(refer);
+
+      res.redirect(refer);
   });
 };
 
@@ -152,7 +157,7 @@ exports.login = function (req, res, next) {
 exports.signout = function (req, res, next) {
   req.session.destroy();
   res.clearCookie(config.auth_cookie_name, { path: '/' });
-  res.redirect(req.headers.referer || 'home');
+  res.redirect(req.headers.referer || config.context+'/home');
 };
 
 exports.active_account = function (req, res, next) {

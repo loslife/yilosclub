@@ -4,7 +4,7 @@
 	<div class='panel'>
 		<div class='header'>
 			<ul class='breadcrumb'>
-				<li><a href='/'>主页</a><span class='divider'>/</span></li>
+				<li><a href='/<%= config.context %>/'>主页</a><span class='divider'>/</span></li>
 				<li class='active'>重置密码</li>
 			</ul>
 		</div>
@@ -15,7 +15,7 @@
 				<strong><%= error %></strong>
 			</div>
 			<% } %>
-			<form id='signin_form' class='form-horizontal' action='/reset_pass' method='post'>
+			<form id='signin_form' class='form-horizontal' action='/<%= config.context %>/reset_pass' method='post'>
 				<div class='control-group'>
 					<label class='control-label' for='psw'>新密码</label>
 					<div class='controls'>

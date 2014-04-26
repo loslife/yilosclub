@@ -130,7 +130,7 @@ exports.add = function (req, res, next) {
       if (err) {
         return next(err);
       }
-      res.redirect('/tags/edit');
+      res.redirect("/"+config.context+'/tags/edit');
     });
   });
 };
@@ -186,7 +186,7 @@ exports.update = function (req, res, next) {
       if (err) {
         return next(err);
       }
-      res.redirect('/tags/edit');
+      res.redirect("/"+config.context+'/tags/edit');
     });
   });
 };
@@ -215,7 +215,7 @@ exports.delete = function (req, res, next) {
         if (err) {
           return next(err);
         }
-        res.redirect('/');
+        res.redirect("/"+config.context+'/');
       });
     };
     proxy.assign('topic_tag_removed', 'tag_collect_removed', done);

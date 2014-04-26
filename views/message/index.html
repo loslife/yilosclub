@@ -4,7 +4,7 @@
 	<div class='panel'>
 		<div class='header'>
 			<ul class='breadcrumb'>
-				<li><a href='/'>主页</a><span class='divider'>/</span></li>
+				<li><a href='/<%= config.context %>/'>主页</a><span class='divider'>/</span></li>
 				<li class='active'>新消息</li>
 			</ul>
 		</div>
@@ -42,7 +42,7 @@ $(document).ready(function() {
 			message_id: message_id,
 			_csrf: '<%- csrf %>'
 		};
-		$.post('/messages/mark_read', data, function(data) {
+		$.post('/<%= config.context %>/messages/mark_read', data, function(data) {
 			if (data.status === 'success') {
 				$me.parent().toggleClass('message');
 				$me.parent().find('.unread').each(function(index) {
@@ -55,7 +55,7 @@ $(document).ready(function() {
 	});
 	$('#mark_all_messages_btn').click(function() {
 		var $parent = $(this).parent().parent();
-		$.post('/messages/mark_all_read', { _csrf: '<%- csrf %>' }, function(data) {
+		$.post('/<%= config.context %>/messages/mark_all_read', { _csrf: '<%- csrf %>' }, function(data) {
 			if (data.status === 'success') {
 				$parent.find('.message').each(function() {
 					$me = $(this);

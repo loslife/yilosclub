@@ -11,8 +11,8 @@
       <div class='inner'>
         <p style="margin-bottom: 12px"><%= config.description %></p>
         <div>
-          <a href='/signup'><div class='btn btn-success'>现在注册</div></a>
-          <span style="margin-left: 12px">已注册用户请<a class='light' href='/signin'> 登录</a></span>
+          <a href='/<%= config.context %>/signup'><div class='btn btn-success'>现在注册</div></a>
+          <span style="margin-left: 12px">已注册用户请<a class='light' href='/<%= config.context %>/signin'> 登录</a></span>
         </div>
       </div>
     <% } %>
@@ -40,7 +40,7 @@
     <div class='header'>
       <span class='col_fade'>积分榜</span>
       &nbsp;
-      <a class='dark' href='/users/top100'>TOP 100 &gt;&gt;</a>
+      <a class='dark' href='/<%= config.context %>/users/top100'>TOP 100 &gt;&gt;</a>
     </div>
     <div class='inner'>
       <% if (tops.length > 0) { %>
@@ -58,7 +58,7 @@
   <div class='panel'>
     <div class='header'>
       <span class='col_fade'>论坛达人</span> &nbsp;
-      <a class='dark' href='/stars'>更多»</a>
+      <a class='dark' href='/<%= config.context %>/stars'>更多»</a>
     </div>
     <div class='inner'>
       <% if (stars.length > 0) { %>

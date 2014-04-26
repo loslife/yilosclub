@@ -4,7 +4,7 @@
 	<div class='panel'>
 		<div class='header'>
 			<ul class='breadcrumb'>
-				<li><a href='/'>主页</a><span class='divider'>/</span></li>
+				<li><a href='/<%= config.context %>/'>主页</a><span class='divider'>/</span></li>
 				<li class='active'>设置</li>
 			</ul>
 		</div>
@@ -20,7 +20,7 @@
 				<strong><%= success %></strong>
 			</div>
 			<% } %>
-			<form id='setting_form' class='form-horizontal' action='/setting' method='post'>
+			<form id='setting_form' class='form-horizontal' action='/<%= config.context %>/setting' method='post'>
 				<div class='control-group'>
 					<label class='control-label' for='name'>用户名</label>
 					<div class='controls'>
@@ -119,7 +119,7 @@
 			<span class='col_fade'>更改密码</span>
 		</div>
 		<div class='inner'>
-			<form id='change_pass_form' class='form-horizontal' action='/setting' method='post'>
+			<form id='change_pass_form' class='form-horizontal' action='/<%= config.context %>/setting' method='post'>
 				<div class='control-group'>
 					<label class='control-label' for='old_pass'>当前密码</label>
 					<div class='controls'>

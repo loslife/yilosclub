@@ -43,7 +43,7 @@
   <div class='panel'>
     <div class='header'>
       <ul class='breadcrumb'>
-        <li><a href='/'>主页</a><span class='divider'>/</span></li>
+        <li><a href='/<%= config.context %>/'>主页</a><span class='divider'>/</span></li>
         <li class='active'>话题详情</li>
       </ul>
     </div>
@@ -69,11 +69,11 @@
       </div>
       <div class="changes">
         <span class='col_fade'>
-          <a class='dark' href="/user/<%= topic.author.name %>"><%= topic.author.name %></a> 在 <%= topic.friendly_create_at %> 发布
+          <a class='dark' href="/<%= config.context %>/user/<%= topic.author.name %>"><%= topic.author.name %></a> 在 <%= topic.friendly_create_at %> 发布
         </span>
         <% if (topic.friendly_create_at != topic.friendly_update_at) { %>
         <span class='col_fade'>
-          <a class='dark' href="/user/<%= topic.author.name %>"><%= topic.author.name %></a> 在 <%= topic.friendly_update_at %> 重新编辑
+          <a class='dark' href="/<%= config.context %>/user/<%= topic.author.name %>"><%= topic.author.name %></a> 在 <%= topic.friendly_update_at %> 重新编辑
         </span>
         <% } %>
       </div>
@@ -91,15 +91,15 @@
         <% if (locals.current_user) { %>
           <% if (current_user.is_admin) { %>
           <% if (topic.top) { %>
-            <a href='/topic/<%= topic._id %>/top/0'><img class='user_icon' src='<%- config.site_static_host %>/public/images/star_fav_icon&16.png' title='取消置顶' /></a>
+            <a href='/<%= config.context %>/topic/<%= topic._id %>/top/0'><img class='user_icon' src='<%- config.site_static_host %>/public/images/star_fav_icon&16.png' title='取消置顶' /></a>
           <% } else { %>
-            <a href='/topic/<%= topic._id %>/top/1'><img class='user_icon' src='<%- config.site_static_host %>/public/images/star_fav_empty_icon&16.png' title='置顶' /></a>
+            <a href='/<%= config.context %>/topic/<%= topic._id %>/top/1'><img class='user_icon' src='<%- config.site_static_host %>/public/images/star_fav_empty_icon&16.png' title='置顶' /></a>
           <% } %>
-          <a href='/topic/<%= topic._id %>/edit'><img class='user_icon' src='<%- config.site_static_host %>/public/images/doc_edit_icon&16.png' title='编辑' /></a>
+          <a href='/<%= config.context %>/topic/<%= topic._id %>/edit'><img class='user_icon' src='<%- config.site_static_host %>/public/images/doc_edit_icon&16.png' title='编辑' /></a>
           <a href='javascript:;' data-id="<%= topic._id %>" class='delete_topic_btn'><img class='user_icon' src='<%- config.site_static_host %>/public/images/trash_icon&16.png' title='删除' /></a>
           <% } else { %>
             <% if (current_user._id == topic.author_id) { %>
-            <a href='/topic/<%= topic._id %>/edit'><img class='user_icon' src='<%- config.site_static_host %>/public/images/doc_edit_icon&16.png' title='编辑' /></a>
+            <a href='/<%= config.context %>/topic/<%= topic._id %>/edit'><img class='user_icon' src='<%- config.site_static_host %>/public/images/doc_edit_icon&16.png' title='编辑' /></a>
             <% } %>
           <% } %>
         <% } %>
@@ -120,7 +120,7 @@
       <span class='col_fade'>添加回复</span>
     </div>
     <div class='inner reply'>
-      <form id='reply_form' action='/<%= topic._id %>/reply' method='post'>
+      <form id='reply_form' action='/<%= config.context %>/<%= topic._id %>/reply' method='post'>
         <div class='tabbable'>
           <ul class='nav nav-pills'>
             <li class='active'><a href='#markdown' data-toggle='pill'>markdown</a></li>
@@ -149,10 +149,10 @@
 <% if (locals.current_user && locals.topic) { %>
 <!-- ajaxupload -->
 <!-- markdown editor -->
-<%- Loader('/public/topic_edit.min.js')
-  .js('/public/libs/ajax-upload/ajaxupload.js')
-  .js('/public/libs/epiceditor/epiceditor.js')
-  .js('/public/javascripts/editor.js')
+<%- Loader('/'+config.context+'/public/topic_edit.min.js')
+  .js('/'+config.context+'/public/libs/ajax-upload/ajaxupload.js')
+  .js('/'+config.context+'/public/libs/epiceditor/epiceditor.js')
+  .js('/'+config.context+'/public/javascripts/editor.js')
   .done(assets, config.site_static_host, config.mini_assets)
 %>
 <script>
@@ -199,7 +199,7 @@
         topic_id: '<%= topic._id %>',
         _csrf: '<%= csrf %>'
       };
-      $.post('/topic/' + action, data, function(data) {
+      $.post('/<%= config.context %>/topic/' + action, data, function(data) {
         if (data.status === 'success') {
           if (action == 'collect') {
             $me.html('取消收藏');
@@ -227,7 +227,7 @@
           reply_id: reply_id,
           _csrf: "<%- csrf %>"
         };
-        $.post('/reply/' + reply_id + '/delete', data, function (data) {
+        $.post('/<%= config.context %>/reply/' + reply_id + '/delete', data, function (data) {
           if (data.status === 'success') {
             if($me.hasClass('delete_reply_btn')){
               $me.parents('.reply_item').remove();
@@ -244,7 +244,7 @@
     $('.delete_topic_btn').click(function () {
       var topicId = $(this).data('id');
       if (topicId && confirm('确定要删除此话题吗？')) {
-        $.post('/topic/' + topicId + '/delete', { _csrf: $('#_csrf').val() }, function (result) {
+        $.post('/<%= config.context %>/topic/' + topicId + '/delete', { _csrf: $('#_csrf').val() }, function (result) {
           if (!result.success) {
             alert(result.message);
           } else {
@@ -282,9 +282,9 @@
   });
 </script>
 <% } %>
-<%- Loader('/public/fancebox.min.js', '/public/libs/fancybox/fancebox.min.css')
-  .css('/public/libs/fancybox/jquery.fancybox-1.3.4.css')
-  .js('/public/libs/fancybox/jquery.fancybox-1.3.4.pack.js')
-  .js('/public/javascripts/topic.js')
+<%- Loader('/'+config.context+'/public/fancebox.min.js', '/'+config.context+'/public/libs/fancybox/fancebox.min.css')
+  .css('/'+config.context+'/public/libs/fancybox/jquery.fancybox-1.3.4.css')
+  .js('/'+config.context+'/public/libs/fancybox/jquery.fancybox-1.3.4.pack.js')
+  .js('/'+config.context+'/public/javascripts/topic.js')
   .done(assets, config.site_static_host, config.mini_assets)
 %>

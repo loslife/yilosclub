@@ -4,6 +4,7 @@ var at = require('../services/at');
 var message = require('../services/message');
 
 var EventProxy = require('eventproxy');
+var config = require('../config').config;
 
 var User = require('../proxy').User;
 var Topic = require('../proxy').Topic;
@@ -60,7 +61,7 @@ exports.add = function (req, res, next) {
   });
 
   ep.all('reply_saved', 'message_saved', 'score_saved', function (reply) {
-    res.redirect('/topic/' + topic_id + '#' + reply._id);
+    res.redirect("/"+config.context+'/topic/' + topic_id + '#' + reply._id);
   });
 };
 
@@ -81,7 +82,7 @@ exports.add_reply2 = function (req, res, next) {
   var proxy = new EventProxy();
   proxy.assign('reply_saved', 'message_saved', function (reply) {
     Reply.getReplyById(reply._id, function (err, reply) {
-      res.redirect('/topic/' + topic_id + '#' + reply._id);
+      res.redirect("/"+config.context+'/topic/' + topic_id + '#' + reply._id);
       // res.partial('reply/reply2', {object: reply, as: 'reply'});
     });
   });

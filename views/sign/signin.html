@@ -4,7 +4,7 @@
 	<div class='panel'>
 		<div class='header'>
 			<ul class='breadcrumb'>
-				<li><a href='/'>主页</a><span class='divider'>/</span></li>
+				<li><a href='/<%= config.context %>/'>主页</a><span class='divider'>/</span></li>
 				<li class='active'>登录</li>
 			</ul>
 		</div>
@@ -15,7 +15,7 @@
 				<strong><%= error %></strong>
 			</div>
 			<% } %>
-			<form id='signin_form' class='form-horizontal' action='/signin' method='post'>
+			<form id='signin_form' class='form-horizontal' action='/<%= config.context %>/signin' method='post'>
 				<div class='control-group'>
 					<label class='control-label' for='name'>用户名</label>
 					<div class='controls'>
@@ -34,7 +34,7 @@
 				</div>
 				<div class='control-group'>
 					<div class='controls'>
-					<a href='/search_pass'>忘记密码了?</a>
+					<a href='/<%= config.context %>/search_pass'>忘记密码了?</a>
 					</div>
 				</div>
 			</form>

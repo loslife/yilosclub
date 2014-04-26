@@ -3,7 +3,7 @@ var EventProxy = require('eventproxy');
 
 exports.index = function (req, res, next) {
   if (!req.session.user) {
-    res.redirect('home');
+    res.redirect("/"+config.context+'/home');
     return;
   }
 

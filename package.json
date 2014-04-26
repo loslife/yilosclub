@@ -23,6 +23,7 @@
     "loader": "0.0.5",
     "passport": "~0.1.17",
     "passport-github": "~0.1.5",
+    "express-namespace": "0.1.1",
     "forever": "~0.10.11"
   },
   "devDependencies": {
