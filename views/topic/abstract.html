@@ -1,7 +1,7 @@
 <div class='cell'>
 
   <div class='user_avatar block'>
-    <a href="/<%= config.context %>/user/<%= topic.author.name %>">
+    <a href="/user/<%= topic.author.name %>">
       <img src="<%= topic.author.avatar_url %>"
         title="<%= topic.author.name %>"
       />
@@ -9,7 +9,7 @@
   </div>
 
   <div class='block count'>
-    <a href="/<%= config.context %>/topic/<%= topic._id %><%- topic.reply ? '#' + topic.reply._id : '' %>"title="回复数"><%= topic.reply_count %></a
+    <a href="/topic/<%= topic._id %><%- topic.reply ? '#' + topic.reply._id : '' %>"title="回复数"><%= topic.reply_count %></a
       >/<span title='点击数'><%= topic.visit_count %></span>
   </div>
 
@@ -18,7 +18,7 @@
     <% if (topic.top) { %>
       <span class='put_top'>置顶</span>
     <% } %>
-    <a class='' href='/<%= config.context %>/topic/<%= topic._id %>'>
+    <a class='' href='/topic/<%= topic._id %>'>
       <%= topic.title %>
     </a>
   </div>

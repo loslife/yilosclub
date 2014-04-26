@@ -30,14 +30,14 @@ require('express-namespace')
 
 
 module.exports = function (app) {
-    app.namespace('/'+config.context, function(){
-        doRegister()
-    });
+//    app.namespace('/'+config.context, function(){
+//        doRegister()
+//    });
+    doRegister();
 
-  function doRegister(){
+    function doRegister(){
       // home page
       app.get('/', site.index);
-      app.get('/home', site.index);
 
       // sign up, login, logout
       if (config.allow_sign_up) {

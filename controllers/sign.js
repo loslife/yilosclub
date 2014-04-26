@@ -139,16 +139,13 @@ exports.login = function (req, res, next) {
     // store session cookie
     gen_session(user, res);
     //check at some page just jump to home page
-    var refer = req.session._loginReferer ||  config.context+'/home';
-      console.log(refer);
+    var refer = req.session._loginReferer ||  'home';
     for (var i = 0, len = notJump.length; i !== len; ++i) {
       if (refer.indexOf(notJump[i]) >= 0) {
-        refer = "/"+config.context+'/home';
+        refer = 'home';
         break;
       }
     }
-      console.log(refer);
-
       res.redirect(refer);
   });
 };
@@ -157,7 +154,7 @@ exports.login = function (req, res, next) {
 exports.signout = function (req, res, next) {
   req.session.destroy();
   res.clearCookie(config.auth_cookie_name, { path: '/' });
-  res.redirect(req.headers.referer || config.context+'/home');
+  res.redirect(req.headers.referer || 'home');
 };
 
 exports.active_account = function (req, res, next) {

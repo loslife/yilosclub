@@ -86,7 +86,7 @@ exports.show_stars = function (req, res, next) {
 
 exports.showSetting = function (req, res, next) {
   if (!req.session.user) {
-    res.redirect("/"+config.context+'/home');
+    res.redirect('home');
     return;
   }
 
@@ -104,7 +104,7 @@ exports.showSetting = function (req, res, next) {
 
 exports.setting = function (req, res, next) {
   if (!req.session.user) {
-    res.redirect("/"+config.context+'/home');
+    res.redirect('home');
     return;
   }
 
@@ -205,7 +205,7 @@ exports.setting = function (req, res, next) {
         if (err) {
           return next(err);
         }
-        return res.redirect("/"+config.context+'/setting?save=success');
+        return res.redirect('/setting?save=success');
       });
     });
 

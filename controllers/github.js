@@ -21,11 +21,11 @@ exports.callback = function (req, res, next) {
           return next(err);
         }
         sign.gen_session(user, res);
-        return res.redirect("/"+config.context+'/');
+        return res.redirect('/');
       });
     } else {
       req.session.profile = profile;
-      return res.redirect("/"+config.context+'/auth/github/new');
+      return res.redirect('/auth/github/new');
     }
   });
 };
@@ -37,7 +37,7 @@ exports.new = function (req, res, next) {
 exports.create = function (req, res, next) {
   var profile = req.session.profile;
   if (!profile) {
-    return res.redirect("/"+config.context+'/signin');
+    return res.redirect('/signin');
   }
   delete req.session.profile;
   if (req.body.isnew) { // 注册新账号
@@ -66,7 +66,7 @@ exports.create = function (req, res, next) {
         return next(err);
       }
       sign.gen_session(user, res);
-      res.redirect("/"+config.context+'/');
+      res.redirect('/');
     });
   } else { // 关联老账号
     req.body.name = req.body.name.toLowerCase();
@@ -84,7 +84,7 @@ exports.create = function (req, res, next) {
             return next(err);
           }
           sign.gen_session(user, res);
-          res.redirect("/"+config.context+'/');
+          res.redirect('/');
         });
       });
   }

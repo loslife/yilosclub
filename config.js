@@ -7,7 +7,6 @@ var pkg = require('./package.json');
 
 var config = {
   debug: false,
-  context: 'bbs',
   name: '乐斯社区',
   description: '欢迎光临乐斯社区',
   version: pkg.version,
@@ -16,7 +15,7 @@ var config = {
   site_headers: [
     '<meta name="author" content="EDP@TAOBAO" />',
   ],
-  host: 'http://192.168.1.119:70/bbs',
+  host: 'http://192.168.1.119:70',
   // 默认的Google tracker ID，自有站点请修改，申请地址：http://www.google.com/analytics/
   google_tracker_id: 'UA-41753901-5',
   site_logo: '', // default is `name`
@@ -24,7 +23,7 @@ var config = {
     // [ path, title, [target=''] ]
     [ '/about', '关于' ],
   ],
-  site_static_host: 'http://192.168.1.119:70/bbs', // 静态文件存储域名
+  site_static_host: 'http://192.168.1.119:70', // 静态文件存储域名
   mini_assets: false, // 静态文件的合并压缩，详见视图中的Loader
   site_enable_search_preview: false, // 开启google search preview
   site_google_search_domain:  'cnodejs.org',  // google search preview中要搜索的域名

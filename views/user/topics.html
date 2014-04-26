@@ -4,7 +4,7 @@
 	<div class='panel'>
 		<div class='header'>
 			<ul class='breadcrumb'>
-				<li><a href='/<%= config.context %>/'>主页</a><span class='divider'>/</span></li>
+				<li><a href='/'>主页</a><span class='divider'>/</span></li>
 				<li class='active'><%= user.name %></li>
 			</ul>
 		</div>
@@ -82,7 +82,7 @@
 		$('#follow_btn').click(function(){
 			var $me = $(this);
 			var action = $me.attr('action');
-			$.post('/<%= config.context %>/user/'+action,{follow_id: '<%= user._id %>'},function(data){
+			$.post('/user/'+action,{follow_id: '<%= user._id %>'},function(data){
 				if(data.status == 'success'){
 					if(action == 'follow'){
 						$me.html('取消关注');
@@ -98,7 +98,7 @@
 		$('#set_star_btn').click(function(){
 			var $me = $(this);
 			var action = $me.attr('action');
-			$.post('/<%= config.context %>/user/'+action,{user_id: '<%= user._id %>'},function(data){
+			$.post('/user/'+action,{user_id: '<%= user._id %>'},function(data){
 				if(data.status == 'success'){
 					if(action == 'set_star'){
 						$me.html('取消达人');

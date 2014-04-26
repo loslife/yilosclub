@@ -28,7 +28,7 @@
   <div class='panel'>
     <div class='header'>
       <ol class='breadcrumb'>
-        <li><a href='/<%= config.context %>/'>主页</a><span class='divider'>/</span></li>
+        <li><a href='/'>主页</a><span class='divider'>/</span></li>
         <% if(locals.action && action == 'edit'){ %>
         <li class='active'>编辑话题</li>
         <% }else{ %>
@@ -49,9 +49,9 @@
       </div>
       <% }else{ %>
       <% if (locals.action && action === 'edit') { %>
-      <form id='create_topic_form' action='/<%= config.context %>/topic/<%= topic_id %>/edit' method='post'>
+      <form id='create_topic_form' action='/topic/<%= topic_id %>/edit' method='post'>
       <% } else { %>
-      <form id='create_topic_form' action='/<%= config.context %>/topic/create' method='post'>
+      <form id='create_topic_form' action='/topic/create' method='post'>
       <% } %>
         <fieldset>
           <label class='bold' for='title'>标题</label>
@@ -71,10 +71,10 @@
 
 <!-- ajaxupload -->
 <!-- markdown editor -->
-<%- Loader('/'+config.context+'/public/topic_edit.min.js')
-  .js('/'+config.context+'/public/libs/ajax-upload/ajaxupload.js')
-  .js('/'+config.context+'/public/libs/epiceditor/epiceditor.js')
-  .js('/'+config.context+'/public/javascripts/editor.js')
+<%- Loader('/public/topic_edit.min.js')
+  .js('/public/libs/ajax-upload/ajaxupload.js')
+  .js('/public/libs/epiceditor/epiceditor.js')
+  .js('/public/javascripts/editor.js')
   .done(assets, config.site_static_host, config.mini_assets)
 %>
 <script>

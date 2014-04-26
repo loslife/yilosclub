@@ -14,7 +14,7 @@ function createEpicEditor (textarea) {
   var opts = {
     container: 'editor_' + id,
     textarea: id,
-    basePath: global_context+'/public/libs/epiceditor',
+    basePath: '/public/libs/epiceditor',
     clientSideStorage: false,
     useNativeFullscreen: true,
     parser: marked,

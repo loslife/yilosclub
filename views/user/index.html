@@ -4,7 +4,7 @@
 	<div class='panel'>
 		<div class='header'>
 			<ul class='breadcrumb'>
-				<li><a href='/<%= config.context %>/'>主页</a><span class='divider'>/</span></li>
+				<li><a href='/'>主页</a><span class='divider'>/</span></li>
 				<li class='active'><%= user.name %></li>
 			</ul>
 		</div>
@@ -80,7 +80,7 @@
 				<br/><br/>
 				Email (Seen by Administrator): <a href="mailto:<%= user.email %>"><%= user.email %></a>
 				<% if (!user.active) { %>
-				<a class='btn' href="/<%= config.context %>/active_account?key=<%- locals.token %>&name=<%= user.name %>" target="_blank">激活账号</a>
+				<a class='btn' href="/active_account?key=<%- locals.token %>&name=<%= user.name %>" target="_blank">激活账号</a>
 				<% } %>
 			<% } %>
 		</div>
@@ -93,7 +93,7 @@
 		<% if (locals.recent_topics && recent_topics.length > 0) { %>
 		<%- partial('topic/abstract', { collection: recent_topics, as: 'topic' }) %>
 		<div class='cell more'>
-			<a class='dark' href="/<%= config.context %>/user/<%= user.name %>/topics">查看更多»</a>
+			<a class='dark' href="/user/<%= user.name %>/topics">查看更多»</a>
 		</div>
 		<% } else { %>
 		<div class='inner'>
@@ -109,7 +109,7 @@
 		<% if (locals.recent_replies && recent_replies.length > 0) { %>
 		<%- partial('topic/abstract', { collection: recent_replies, as: 'topic' }) %>
 		<div class='cell more'>
-			<a class='dark' href="/<%= config.context %>/user/<%= user.name %>/replies">查看更多»</a>
+			<a class='dark' href="/user/<%= user.name %>/replies">查看更多»</a>
 		</div>
 		<% } else { %>
 		<div class='inner'>
@@ -129,7 +129,7 @@
 				user_id: '<%= user._id %>',
 				_csrf: '<%- csrf %>'
 			};
-			$.post('/<%= config.context %>/user/' + action, params, function (data) {
+			$.post('/user/' + action, params, function (data) {
 				if (data.status === 'success') {
 					if (action === 'set_star') {
 						$me.html('取消达人');
@@ -152,7 +152,7 @@
       if (action === 'set_block' && !confirm('确定要屏蔽该用户吗？此操作不可逆且会删除该用户的所有主题和回复！')) {
         return;
       }
-      $.post('/<%= config.context %>/user/<%- user.name %>/block', params, function (data) {
+      $.post('/user/<%- user.name %>/block', params, function (data) {
         if (data.status === 'success') {
           if (action === 'set_block') {
             $me.html('取消屏蔽用户');

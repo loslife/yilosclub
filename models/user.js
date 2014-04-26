@@ -40,7 +40,7 @@ var UserSchema = new Schema({
 });
 
 UserSchema.virtual('avatar_url').get(function () {
-  return '/'+config.context+'/public/images/morentouxiang.jpg';
+  return '/public/images/morentouxiang.jpg';
 });
 
 mongoose.model('User', UserSchema);

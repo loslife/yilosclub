@@ -2,11 +2,11 @@
   <a id="<%- reply._id %>"></a>
   <div class='author_content'>
     <div class='user_avatar block'>
-      <a href="/<%= config.context %>/user/<%= reply.author.name %>"><img src="<%= reply.author.avatar_url %>" title="<%= reply.author.name %>" /></a>
+      <a href="/user/<%= reply.author.name %>"><img src="<%= reply.author.avatar_url %>" title="<%= reply.author.name %>" /></a>
     </div>
     <div class='user_info'>
       <span class='reply_author'>
-        <a class='dark' href="/<%= config.context %>/user/<%= reply.author.name %>"><%= reply.author.name %>
+        <a class='dark' href="/user/<%= reply.author.name %>"><%= reply.author.name %>
         </a>
       </span>
       <span class='col_fade'>

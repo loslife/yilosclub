@@ -144,7 +144,7 @@ exports.put = function (req, res, next) {
 
       var proxy = new EventProxy();
       var render = function () {
-        res.redirect("/"+config.context+'/topic/' + topic._id);
+        res.redirect('/topic/' + topic._id);
       };
 
       proxy.assign('tags_saved', 'score_saved', render);
@@ -181,7 +181,7 @@ exports.put = function (req, res, next) {
 
 exports.showEdit = function (req, res, next) {
   if (!req.session.user) {
-    res.redirect("/"+config.context+'/home');
+    res.redirect('home');
     return;
   }
 
@@ -218,7 +218,7 @@ exports.showEdit = function (req, res, next) {
 
 exports.update = function (req, res, next) {
   if (!req.session.user) {
-    res.redirect("/"+config.context+'/home');
+    res.redirect('home');
     return;
   }
   var topic_id = req.params.tid;
@@ -270,7 +270,7 @@ exports.update = function (req, res, next) {
 
           var proxy = new EventProxy();
           var render = function () {
-            res.redirect("/"+config.context+'/topic/' + topic._id);
+            res.redirect('/topic/' + topic._id);
           };
           proxy.assign('tags_removed_done', 'tags_saved_done', render);
           proxy.fail(next);
@@ -354,7 +354,7 @@ exports.delete = function (req, res, next) {
 
 exports.top = function (req, res, next) {
   if (!req.session.user.is_admin) {
-    res.redirect("/"+config.context+'/home');
+    res.redirect('home');
     return;
   }
   var topic_id = req.params.tid;
