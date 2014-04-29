@@ -115,9 +115,9 @@ var config = {
   GITHUB_OAUTH: {
     clientID: 'your GITHUB_CLIENT_ID',
     clientSecret: 'your GITHUB_CLIENT_SECRET',
-    callbackURL: 'http://cnodejs.org/auth/github/callback',
+    callbackURL: 'http://cnodejs.org/auth/github/callback'
   },
-  allow_sign_up: true,
+  allow_sign_up: true
 };
 
 module.exports = config;
